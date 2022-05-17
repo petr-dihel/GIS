@@ -1,0 +1,35 @@
+<html>
+    <header>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+            integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+            crossorigin=""/>
+
+        <!-- Make sure you put this AFTER Leaflet's CSS -->
+        <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+            integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+            crossorigin=""></script>
+        <style>
+            #mapid { height: 800px; }
+        </style>
+    </header>
+    <body>
+        <div id="mapid"></div>
+
+        <script>
+                var mymap = L.map('mapid').setView([49.853, 18.525], 16);
+
+                L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+                    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+                    maxZoom: 18,
+                    id: 'mapbox.streets',
+                    accessToken: 'pk.eyJ1IjoicGV0ci1kaWhlbCIsImEiOiJjbDB2MGZzZGIwcWZhM2JuMW9kZG82aWJ0In0.Z7gd42N-XZ794uYUsGwF4A'
+                }).addTo(mymap);
+
+                var imageUrl = 'https://homel.vsb.cz/~dih0008/pt000023.png',
+                    imageBounds = [[49.85035, 18.526561], [49.855761, 18.51979]];
+                L.imageOverlay(imageUrl, imageBounds).addTo(mymap);
+
+                L.a
+        </script>
+    </body>
+</html>
